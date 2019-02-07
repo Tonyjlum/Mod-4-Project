@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import SearchForm from './components/SearchForm'
 
 class App extends Component {
   render() {
@@ -13,17 +14,11 @@ class App extends Component {
             <div class="top-bar">
               <div class="top-bar-left">
                 <ul class="menu">
-                  <li class="menu-text"><img src="https://static.thenounproject.com/png/15320-200.png" alt="logo"/></li>
+                  <li class="menu-text"><img src="https://i.imgur.com/9En3spK.png" href="#" alt="logo"/></li>
                   <li><a href="#">toque</a></li>
                 </ul>
               </div>
             </div>
-          </div>
-
-          <div class="middle-content-section">
-            <h1>Incredible Meals Brought to You</h1>
-            <button class="button large">Button</button>
-            <button class="button large">Button</button>
           </div>
 
           <div class="bottom-content-section" data-magellan data-threshold="0">
