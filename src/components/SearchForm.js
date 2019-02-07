@@ -49,3 +49,5 @@ const SearchForm = () => {
     </div>
   )
 }
+
+export default SearchForm
