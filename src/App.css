@@ -75,11 +75,6 @@
   margin-left: 1rem;
 }
 
-/* .listed-chefs {
-  color: #fefefe;
-  font-size: 2rem;
-  margin-right: 50%
-} */
 
 /* Search form */
 .wrapper {
@@ -157,7 +152,8 @@
 
 .card-profile-stats .card-profile-stats-intro {
   text-align: center;
-
+  display: flex;
+  flex-direction: row;
 }
 
 .card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
@@ -194,6 +190,10 @@
 
 .card-profile-stats .card-profile-stats-more .card-profile-stats-more-content {
   display: none;
+}
+
+.card-profile-state-intro-bio {
+
 }
 
 

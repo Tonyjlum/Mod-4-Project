@@ -13,6 +13,10 @@ class ChefProfile extends React.Component {
             <div className="button-group align-center">
               <button id={this.props.chef.id} onClick={this.props.showModal} className="button" data-open="mobile-ios-modal"><i className="fa fa-cogs"></i>Book This Chef</button>
             </div>
+            <div className="card-profile-state-intro-bio">
+              <h5>Bio:</h5><br/>
+              <p>{this.props.chef.bio}</p>
+            </div>
 
             <div className="reveal mobile-ios-modal" id="mobile-ios-modal" data-reveal>
               <div className="mobile-ios-modal-inner">
