@@ -93,6 +93,7 @@ class App extends Component {
                 hidden={!this.state.hidden}
                 selectedChef={this.selectedChef}
                 handleBookChef={this.handleBookChef}
+                guests={this.state.guests}
               />
             <div className="middle-left" hidden={this.state.hidden}>
               <SearchForm

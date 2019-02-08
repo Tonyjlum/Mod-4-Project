@@ -24,7 +24,7 @@ class ChefProfile extends React.Component {
               <h4><strong>{this.props.chef.name}</strong></h4>
               <p>Specialty: {this.props.chef.specialty}<small/></p><br/>
               <div className="button-group align-center">
-                <button id={this.props.chef.id} onClick={() => this.props.showModal(this.props.chef.id)} className="button" data-open="mobile-ios-modal"><i className="fa fa-cogs"></i>Book This Chef</button>
+                <button id={this.props.chef.id} onClick={() => this.props.showModal(this.props.chef)} className="button" data-open="mobile-ios-modal"><i className="fa fa-cogs"></i>Book This Chef</button>
               </div>
             </div>
 

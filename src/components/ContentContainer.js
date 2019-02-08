@@ -7,11 +7,12 @@ class ContentContainer extends React.Component {
 
   state = {
     show: false,
-    currentChefId: null
+    currentChef: null,
+    note: ''
   }
 
-  showModal = (id) => {
-    this.setState({ show: true, currentChefId: id })
+  showModal = (chef) => {
+    this.setState({ show: true, currentChef: chef })
   }
 
   hideModal = () => {
@@ -20,8 +21,7 @@ class ContentContainer extends React.Component {
 
   bookChefAppointment = (e) => {
     e.preventDefault()
-
-    console.log("book a chef", this.state.currentChefId);
+    console.log("in book appt", e.target);
   }
 
   render() {
