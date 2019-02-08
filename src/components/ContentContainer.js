@@ -6,11 +6,12 @@ import BookChefForm from './BookChefForm'
 class ContentContainer extends React.Component {
 
   state = {
-    show: false
+    show: false,
+    currentChefId: null
   }
 
-  showModal = () => {
-    this.setState({ show: true })
+  showModal = (id) => {
+    this.setState({ show: true, currentChefId: id })
   }
 
   hideModal = () => {
@@ -19,7 +20,8 @@ class ContentContainer extends React.Component {
 
   bookChefAppointment = (e) => {
     e.preventDefault()
-    console.log("book a chef");
+
+    console.log("book a chef", this.state.currentChefId);
   }
 
   render() {

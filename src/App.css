@@ -193,8 +193,11 @@
 }
 
 .card-profile-state-intro-bio {
-
+  width: 50%;
+  margin-left: 2rem;
+  justify-content: center;
 }
+
 
 
 @media print, screen and (min-width: 50em) {
