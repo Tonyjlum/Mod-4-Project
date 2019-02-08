@@ -25,8 +25,6 @@
 .hero-full-screen .middle-content-section .button {
   font-size: 1.5rem;
   color: #fefefe;
-  background-color: blue;
-  outline-color: blue;
 }
 
 .hero-full-screen .top-content-section {
@@ -69,26 +67,32 @@
           align-items: center;
 }
 
-.hero-full-screen .top-bar .menu a {
+.hero-full-screen .top-bar-left a {
   text-decoration: none;
   color: #fefefe;
   font-weight: bold;
   font-size: 1.2rem;
+  margin-left: 1rem;
 }
 
 /* Search form */
+.wrapper {
+  margin-right: 60%;
+  margin-bottom: 10%;
+}
 
 .translucent-form-overlay {
-  max-width: 500px;
+  max-width: 30rem;
+  min-width: 5rem;
   width: 100%;
   background-color: rgba(54, 54, 54, 0.8);
   padding: 20px;
   color: #fefefe;
+  margin-right: 10rem;
 }
 
 .translucent-form-overlay .columns.row {
   display: block;
-  position: left;
 }
 
 .translucent-form-overlay h3, .translucent-form-overlay label {
@@ -109,4 +113,114 @@
 
 .translucent-form-overlay input::placeholder {
   color: #8a8a8a;
+}
+
+/* Content container */
+
+.main-content-section {
+  outline: 2rem;
+  display: inline-block;
+  max-width: 50rem;
+  min-width: 5rem;
+  /* width: 100%; */
+  background-color: rgba(54, 54, 54, 0.8);
+  color: #fefefe;
+  margin-right: 10rem;
+  z-index: -1;
+}
+
+.main-content-container h1{
+  color: white;
+}
+
+.featured-chefs {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.chef-slides {
+  display: none;
+}
+
+/* Chef Profile Card */
+
+
+
+.card-profile-stats {
+  /* width: 50%; */
+  border: 1px solid #cacaca;
+  margin: 0 0 1.25rem;
+  padding: 1.25rem;
+  /* background: #fefefe; */
+}
+
+.card-profile-stats .card-profile-stats-intro {
+  text-align: center;
+}
+
+.card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
+  height: auto;
+  width: 100%;
+  border-radius: 10%;
+  margin: 0 0 1.25rem;
+}
+
+.card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-content p:last-child {
+  margin: 0;
+}
+
+.card-profile-stats .card-profile-stats-container {
+  text-align: center;
+}
+
+.card-profile-stats .card-profile-stats-container .stat {
+  font-size: 1.5rem;
+}
+
+.card-profile-stats .card-profile-stats-container .card-profile-stats-statistic p:last-child {
+  margin: 0;
+}
+
+.card-profile-stats .card-profile-stats-more .card-profile-stats-more-link {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #0a0a0a;
+  padding: 0rem;
+  cursor: pointer;
+}
+
+.card-profile-stats .card-profile-stats-more .card-profile-stats-more-content {
+  display: none;
+}
+
+
+@media print, screen and (min-width: 50em) {
+  .card-profile-stats .card-profile-stats-intro {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    text-align: left;
+  }
+  .card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
+    margin: 0 1.25rem 0 0;
+    max-width: 250px;
+  }
+  .card-profile-stats .card-profile-stats-container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+  }
 }
