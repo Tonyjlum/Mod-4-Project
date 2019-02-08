@@ -75,20 +75,31 @@
   margin-left: 1rem;
 }
 
+/* .listed-chefs {
+  color: #fefefe;
+  font-size: 2rem;
+  margin-right: 50%
+} */
+
 /* Search form */
 .wrapper {
-  margin-right: 60%;
+  margin-right: 0%;
   margin-bottom: 10%;
+  width: 100%;
+}
+
+.middle-left {
+
 }
 
 .translucent-form-overlay {
   max-width: 30rem;
   min-width: 5rem;
-  width: 100%;
+  /* width: 100%; */
   background-color: rgba(54, 54, 54, 0.8);
   padding: 20px;
   color: #fefefe;
-  margin-right: 10rem;
+  margin-left: 5rem;
 }
 
 .translucent-form-overlay .columns.row {
@@ -117,38 +128,28 @@
 
 /* Content container */
 
-.main-content-section {
-  outline: 2rem;
+.main-content-container {
   display: inline-block;
-  max-width: 50rem;
-  min-width: 5rem;
-  /* width: 100%; */
-  background-color: rgba(54, 54, 54, 0.8);
+  /* border: 1px solid #cacaca; */
+  max-width: 70%;
+  /* min-width: 5rem; */
+  width: 100%;
+  background-color: rgba(54, 54, 54, 0.6);
   color: #fefefe;
-  margin-right: 10rem;
-  z-index: -1;
+  margin-left: 15%;
 }
 
 .main-content-container h1{
   color: white;
 }
 
-.featured-chefs {
-  text-align: center;
-  font-size: 2rem;
-}
-
-.chef-slides {
-  display: none;
-}
 
 /* Chef Profile Card */
 
 
-
 .card-profile-stats {
   /* width: 50%; */
-  border: 1px solid #cacaca;
+  /* border-bottom: 1px solid #cacaca; */
   margin: 0 0 1.25rem;
   padding: 1.25rem;
   /* background: #fefefe; */
@@ -156,6 +157,7 @@
 
 .card-profile-stats .card-profile-stats-intro {
   text-align: center;
+
 }
 
 .card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
@@ -223,4 +225,77 @@
         -ms-flex-pack: distribute;
             justify-content: space-around;
   }
+}
+
+/* Book a Chef Form Modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 40%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.modal-chef-name {
+  color: black;
+  text-align: center;
+}
+
+.modal-content {
+  margin: 5%;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.modal-close-button {
+  text-align: center;
+}
+
+.contact-us-section-right {
+    padding-left: $contact-us-section-padding;
+
+    @include breakpoint(medium) {
+      border-left: 1px solid $light-gray;
+    }
+  }
+
+  .contact-us-header {
+    margin-bottom: $contact-us-section-padding;
+  }
+
+  .responsive-embed {
+    margin-bottom: 0;
+    padding-bottom: 55%;
+  }
+
+.contact-us-form {
+  input[type=text],
+  input[type=email],
+  textarea {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.contact-us-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
