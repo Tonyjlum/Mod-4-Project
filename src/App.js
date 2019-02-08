@@ -90,7 +90,6 @@ class App extends Component {
           <div className="wrapper">
               <ContentContainer
                 chefData={this.state.chefsToReturn}
-                hidden={!this.state.hidden}
                 selectedChef={this.selectedChef}
                 handleBookChef={this.handleBookChef}
                 guests={this.state.guests}

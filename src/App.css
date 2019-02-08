@@ -154,6 +154,7 @@
   text-align: center;
   display: flex;
   flex-direction: row;
+  height: 50%;
 }
 
 .card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {

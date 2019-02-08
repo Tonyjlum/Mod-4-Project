@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { StyleRoot } from 'radium'
+import Coverflow from 'react-coverflow'
 import ChefProfile from './ChefProfile'
 import BookChefForm from './BookChefForm'
 
@@ -9,7 +11,8 @@ class ContentContainer extends React.Component {
     show: false,
     currentChef: null,
     datetime: null,
-    message: ''
+    message: '',
+    hideCarousel: true
   }
 
   showModal = (chef) => {
@@ -56,25 +59,44 @@ class ContentContainer extends React.Component {
 
   render() {
     return(
-      <div className="main-content-container" hidden={this.props.hidden}>
-        {this.props.chefData.map(chef => {
-          return (
-            <ChefProfile
-              key={chef.id}
-              chef={chef}
-              selectedChef={this.props.selectedChef}
-              handleBookChef={this.props.handleBookChef}
-              showModal={this.showModal}
-            />
-          )
-        })}
-        <BookChefForm
-          selectedChef={this.props.selectedChef}
-          show={this.state.show}
-          handleClose={this.hideModal}
-          bookChefAppointment={this.bookChefAppointment}
-          onBookChefFormChange={this.onBookChefFormChange}
-        />
+      <div className="main-content-container" hidden={this.state.hideCarousel}>
+        <StyleRoot>
+            <Coverflow
+              displayQuantityOfSide={2}
+              navigation
+              infiniteScroll
+              enableHeading
+              media={{
+                '@media (max-width: 900px)': {
+                  width: '600px',
+                  height: '300px'
+                },
+                '@media (min-width: 900px)': {
+                  width: '960px',
+                  height: '600px'
+                }
+              }}
+            >
+              {this.props.chefData.map(chef => {
+                return (
+                  <ChefProfile
+                    key={chef.id}
+                    chef={chef}
+                    selectedChef={this.props.selectedChef}
+                    handleBookChef={this.props.handleBookChef}
+                    showModal={this.showModal}
+                  />
+                )
+              })}
+            </Coverflow>
+          </StyleRoot>
+          <BookChefForm
+            selectedChef={this.props.selectedChef}
+            show={this.state.show}
+            handleClose={this.hideModal}
+            bookChefAppointment={this.bookChefAppointment}
+            onBookChefFormChange={this.onBookChefFormChange}
+          />
       </div>
     )
   }
