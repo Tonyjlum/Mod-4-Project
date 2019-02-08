@@ -9,12 +9,12 @@ class App extends Component {
 
   state = {
     chefs: [],
+    chefsToReturn: [],
     location: null,
     cuisine: null,
     guests: 0,
     hidden: false
   }
-
 
   componentDidMount() {
     fetch(`${endPoint}chefs`)
@@ -35,25 +35,40 @@ class App extends Component {
   handleFormChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
-    })
+    }, () => console.log("in form change", this.state))
   }
 
   handleSubmit = (e) => {
+    e.preventDefault()
     if (this.state.location && this.state.cuisine && this.state.guests) {
       this.setState({
-        hidden: !this.state.hidden
+        hidden: !this.state.hidden,
+        chefsToReturn: this.chefsToDisplay()
       }, () => console.log(this.state))
     }
   }
 
   chefsToDisplay = () => {
+    console.log("display chefs");
     if (this.state.cuisine === "any") {
-      return this.state.chefs.slice(0, 3)
+      return this.state.chefs
     } else {
       return this.state.chefs.filter( chef => {
         return chef.specialty === this.state.cuisine
       })
     }
+  }
+
+  selectedChef = (selectedChef) => {
+    const selected = this.state.chefs.find(chef => chef.id === selectedChef.id)
+    console.log(selected);
+    return selected
+  }
+
+  handleBookChef = () => {
+    this.setState({
+      hidden: !this.state.hidden
+    })
   }
 
   render() {
@@ -73,12 +88,12 @@ class App extends Component {
           </div>
 
           <div className="wrapper">
-            <div className="main-content-section" hidden={!this.state.hidden} data-magellan-target="main-content-section">
               <ContentContainer
-                chefData={this.chefsToDisplay()}
+                chefData={this.state.chefsToReturn}
                 hidden={!this.state.hidden}
+                selectedChef={this.selectedChef}
+                handleBookChef={this.handleBookChef}
               />
-            </div>
             <div className="middle-left" hidden={this.state.hidden}>
               <SearchForm
                 handleSubmit={this.handleSubmit}

@@ -3,12 +3,12 @@ import React from 'react'
 const SearchForm = (props) => {
   return(
     <div className="translucent-form-overlay" hidden={props.hidden}>
-      <form>
+      <form onChange={props.handleFormChange}>
         <h3>Hire A Personal Chef</h3>
         <br/>
         <div className="row columns">
-          <select id="location" type="text" onChange={props.handleFormChange}>
-            <option value="location">Location</option>
+          <select id="location" type="text" >
+            <option value="" disabled selected>Your Location</option>
             <option value="any">Any</option>
             <option value="brooklyn">Brooklyn</option>
             <option value="manhattan">Manhattan</option>
@@ -16,8 +16,8 @@ const SearchForm = (props) => {
           </select>
         </div>
         <div className="row columns">
-          <select id="cuisine" type="text" onChange={props.handleFormChange}>
-            <option value="cuisine">Cuisine</option>
+          <select id="cuisine" type="text" >
+            <option value="" disabled selected>Cuisine</option>
             <option value="any">Any</option>
             <option value="italian">Italian</option>
             <option value="french">French</option>
@@ -36,8 +36,8 @@ const SearchForm = (props) => {
           </select>
         </div>
         <div className="row columns">
-          <select id="guests" type="text" onChange={props.handleFormChange}>
-            <option value="guests">Guests</option>
+          <select id="guests" type="text" >
+            <option value="" disabled selected>Guests</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
