@@ -59,7 +59,7 @@ class ContentContainer extends React.Component {
 
   render() {
     return(
-      <div className="main-content-container" hidden={this.state.hideCarousel}>
+      <div>
         <StyleRoot>
             <Coverflow
               displayQuantityOfSide={2}

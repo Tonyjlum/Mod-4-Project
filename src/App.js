@@ -87,20 +87,21 @@ class App extends Component {
             </div>
           </div>
 
-          <div className="wrapper">
+          <div className="middle-left" hidden={this.state.hidden}>
+            <SearchForm
+              handleSubmit={this.handleSubmit}
+              handleFormChange={this.handleFormChange}
+              hidden={this.state.hidden}
+            />
+          </div>
+
+          <div className="wrapper" hidden={!this.state.hidden}>
               <ContentContainer
                 chefData={this.state.chefsToReturn}
                 selectedChef={this.selectedChef}
                 handleBookChef={this.handleBookChef}
                 guests={this.state.guests}
               />
-            <div className="middle-left" hidden={this.state.hidden}>
-              <SearchForm
-                handleSubmit={this.handleSubmit}
-                handleFormChange={this.handleFormChange}
-                hidden={this.state.hidden}
-              />
-            </div>
           </div>
 
         </div>

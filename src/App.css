@@ -84,7 +84,9 @@
 }
 
 .middle-left {
-
+  margin-right: 0%;
+  margin-bottom: 10%;
+  width: 100%;
 }
 
 .translucent-form-overlay {
@@ -148,13 +150,18 @@
   margin: 0 0 1.25rem;
   padding: 1.25rem;
   /* background: #fefefe; */
+  height: 80%;
+}
+
+.coverflow__figure__3bk_C {
+  height: 80%;
+
 }
 
 .card-profile-stats .card-profile-stats-intro {
   text-align: center;
   display: flex;
   flex-direction: row;
-  height: 50%;
 }
 
 .card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
