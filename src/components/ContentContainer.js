@@ -8,7 +8,8 @@ class ContentContainer extends React.Component {
   state = {
     show: false,
     currentChef: null,
-    note: ''
+    datetime: null,
+    message: ''
   }
 
   showModal = (chef) => {
@@ -21,7 +22,36 @@ class ContentContainer extends React.Component {
 
   bookChefAppointment = (e) => {
     e.preventDefault()
-    console.log("in book appt", e.target);
+    fetch("http://localhost:3001/api/v1/appointments", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        user_id: 1,
+        chef_id: this.state.currentChef.id,
+        guest_count: this.state.guests,
+        cost: this.state.currentChef.price,
+        note: this.state.message,
+        datetime: this.state.datetime
+      })
+    })
+    .then( resp => resp.json())
+    .then( appt => {
+      this.setState({
+        show: false,
+        currentChef: null,
+        datetime: null,
+        message: ''
+      })
+    })
+  }
+
+  onBookChefFormChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value
+    }, () => console.log(this.state))
   }
 
   render() {
@@ -43,6 +73,7 @@ class ContentContainer extends React.Component {
           show={this.state.show}
           handleClose={this.hideModal}
           bookChefAppointment={this.bookChefAppointment}
+          onBookChefFormChange={this.onBookChefFormChange}
         />
       </div>
     )
