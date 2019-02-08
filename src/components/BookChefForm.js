@@ -8,7 +8,7 @@ const BookChefForm = (props) => {
       <section className="modal-main">
         {props.children}
         <form className="contact-us-form"><br/>
-          <h4 className="modal-chef-name">Book Chef</h4>
+          <h4 className="modal-chef-name">Book This Chef!</h4>
           <div className="modal-content">
             <input type="text" placeholder="Full name"/>
             <input type="email" placeholder="Email"/>
