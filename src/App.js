@@ -18,11 +18,11 @@ class App extends Component {
 
   componentDidMount() {
     fetch(`${endPoint}chefs`)
-    .then( resp => resp.json())
+    .then(resp => resp.json())
     .then(chefs => {
       this.setState({
         chefs
-      }, () => console.log(this.state.chefs))
+      })
     })
   }
 
@@ -48,7 +48,7 @@ class App extends Component {
 
   chefsToDisplay = () => {
     if (this.state.cuisine === "any") {
-      return this.state.chefs.slice(0, 3)
+      return this.state.chefs
     } else {
       return this.state.chefs.filter( chef => {
         return chef.specialty === this.state.cuisine
