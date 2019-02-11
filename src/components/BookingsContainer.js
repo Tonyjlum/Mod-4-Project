@@ -35,17 +35,19 @@ class BookingsContainer extends React.Component {
   }
 
   handleCancelBooking = (bookingId) => {
-    console.log("delete this booking:", bookingId);
-    fetch(`http://localhost:3001/api/v1/appointments/${bookingId}`, {
-      method: "DELETE"
-    })
-    .then( () => {
-      this.setState({
-        bookings: this.state.bookings.filter( booking => {
-          return booking.id !== bookingId
+    if (window.confirm(`Would you like to cancel?`)) {
+      console.log("delete this booking:", bookingId);
+      fetch(`http://localhost:3001/api/v1/appointments/${bookingId}`, {
+        method: "DELETE"
+      })
+      .then( () => {
+        this.setState({
+          bookings: this.state.bookings.filter( booking => {
+            return booking.id !== bookingId
+          })
         })
       })
-    } )
+    }
   }
 
   render() {
