@@ -8,6 +8,8 @@ class BookingsContainer extends React.Component {
     bookings: [],
     show: false,
     currentBooking: null,
+    edittedDT: null,
+    edittedNote: ""
   }
 
   showModal = (booking) => {
@@ -50,6 +52,29 @@ class BookingsContainer extends React.Component {
     }
   }
 
+  getEdittedBookingInfo = (e) => {
+    console.log(e)
+    e.preventDefault()
+    e.persist()
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  }
+
+  handleEditSubmit = (booking) => {
+    fetch(`http://localhost:3001/api/v1/appointments/${booking.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        datetime: this.state.edittedDT,
+        note: this.state.edittedNote
+      })
+    })
+  }
+
   render() {
     return (
       <div>
@@ -67,6 +92,9 @@ class BookingsContainer extends React.Component {
         <EditBookingForm
           show={this.state.show}
           handleClose={this.hideModal}
+          currentBooking={this.state.currentBooking}
+          editBooking={this.getEdittedBookingInfo}
+          handleEditSubmit={this.handleEditSubmit}
         />
       </div>
     )
