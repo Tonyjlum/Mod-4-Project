@@ -2,6 +2,11 @@ import React from 'react'
 
 class ChefProfile extends React.Component {
 
+  state = {
+    note: "",
+    date: null
+  }
+
   chefBioLimit = (bio) => {
     if (bio.length > 123){
       return bio.slice(0, 120) + "..."

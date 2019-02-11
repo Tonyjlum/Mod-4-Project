@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.2.1",
     "foundation-sites": "^6.5.3",
     "react": "^16.8.1",
     "react-coverflow": "^0.2.18",

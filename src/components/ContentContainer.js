@@ -1,7 +1,7 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { StyleRoot } from 'radium'
-import Coverflow from 'react-coverflow'
+// import ReactDOM from 'react-dom'
+// import { StyleRoot } from 'radium'
+// import Coverflow from 'react-coverflow'
 import ChefProfile from './ChefProfile'
 import BookChefForm from './BookChefForm'
 
@@ -12,7 +12,7 @@ class ContentContainer extends React.Component {
     currentChef: null,
     datetime: null,
     message: '',
-    hideCarousel: true
+    hideCarousel: true,
   }
 
   showModal = (chef) => {
@@ -34,7 +34,7 @@ class ContentContainer extends React.Component {
       body: JSON.stringify({
         user_id: 1,
         chef_id: this.state.currentChef.id,
-        guest_count: this.state.guests,
+        guest_count: this.props.guests,
         cost: this.state.currentChef.price,
         note: this.state.message,
         datetime: this.state.datetime
@@ -59,37 +59,18 @@ class ContentContainer extends React.Component {
 
   render() {
     return(
-      <div>
-        <StyleRoot>
-            <Coverflow
-              displayQuantityOfSide={2}
-              navigation
-              infiniteScroll
-              enableHeading
-              media={{
-                '@media (max-width: 900px)': {
-                  width: '600px',
-                  height: '300px'
-                },
-                '@media (min-width: 900px)': {
-                  width: '960px',
-                  height: '600px'
-                }
-              }}
-            >
-              {this.props.chefData.map(chef => {
-                return (
-                  <ChefProfile
-                    key={chef.id}
-                    chef={chef}
-                    selectedChef={this.props.selectedChef}
-                    handleBookChef={this.props.handleBookChef}
-                    showModal={this.showModal}
-                  />
-                )
-              })}
-            </Coverflow>
-          </StyleRoot>
+      <div className="profile-wrapper">
+        {this.props.chefData.map(chef => {
+          return (
+            <ChefProfile
+              key={chef.id}
+              chef={chef}
+              selectedChef={this.props.selectedChef}
+              handleBookChef={this.props.handleBookChef}
+              showModal={this.showModal}
+            />
+          )
+        })}
           <BookChefForm
             selectedChef={this.props.selectedChef}
             show={this.state.show}

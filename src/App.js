@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchForm from './components/SearchForm'
 import ContentContainer from './components/ContentContainer'
+import {BrowserRouter as Router, Route, Link, NavLink} from "react-router-dom"
 
 const endPoint = "http://localhost:3001/api/v1/"
 
@@ -73,39 +74,50 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="hero-full-screen">
+      <Router>
+      <div>
+        <NavLink exact to="/" >
+          Home
+        </NavLink>
+        <NavLink exact to="/search" >
+          Search
+        </NavLink>
 
-          <div className="top-content-section">
-            <div className="top-bar">
-              <div className="top-bar-left">
-                <ul className="menu">
-                  <li className="menu-text"><img src="https://i.imgur.com/9En3spK.png" href="#" alt="logo"/></li>
-                </ul>
-                <a href="#">toque</a>
+        <div className="App">
+          <div className="hero-full-screen">
+
+            <div className="top-content-section">
+              <div className="top-bar">
+                <div className="top-bar-left">
+                  <ul className="menu">
+                    <li className="menu-text"><img src="https://i.imgur.com/9En3spK.png" href="#" alt="logo"/></li>
+                  </ul>
+                  <a href="#">toque</a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="middle-left" hidden={this.state.hidden}>
-            <SearchForm
-              handleSubmit={this.handleSubmit}
-              handleFormChange={this.handleFormChange}
-              hidden={this.state.hidden}
-            />
-          </div>
-
-          <div className="wrapper" hidden={!this.state.hidden}>
-              <ContentContainer
-                chefData={this.state.chefsToReturn}
-                selectedChef={this.selectedChef}
-                handleBookChef={this.handleBookChef}
-                guests={this.state.guests}
+            <div className="middle-left" hidden={this.state.hidden}>
+              <SearchForm
+                handleSubmit={this.handleSubmit}
+                handleFormChange={this.handleFormChange}
+                hidden={this.state.hidden}
               />
-          </div>
+            </div>
 
+            <div className="wrapper" hidden={!this.state.hidden}>
+                <ContentContainer
+                  chefData={this.state.chefsToReturn}
+                  selectedChef={this.selectedChef}
+                  handleBookChef={this.handleBookChef}
+                  guests={this.state.guests}
+                />
+            </div>
+
+          </div>
         </div>
-      </div>
+        </div>
+      </Router>
     );
   }
 }
