@@ -6,6 +6,7 @@ body {
   background-attachment: fixed;
 }
 
+
 .hero-full-screen {
   height: 100vh;
   display: -webkit-flex;
@@ -88,11 +89,15 @@ body {
   margin-right: 0%;
   margin-bottom: 10%;
   width: 100%;
-  text-align: center;
+}
+
+.row-columns {
+  width: 100%;
+  align: center;
 }
 
 .profile-wrapper {
-  display: inline-block;
+  text-align: center;
 }
 
 .middle-left {
@@ -109,6 +114,8 @@ body {
   padding: 20px;
   color: #fefefe;
   margin-left: 5rem;
+  margin-top: 8rem;
+  /* align: center; */
 }
 
 .translucent-form-overlay .columns.row {
@@ -165,6 +172,7 @@ body {
   width: 900px;
   /* margin-left: 15%;
   margin-right: 15%; */
+  display: inline-block;
 }
 
 .coverflow {
@@ -304,4 +312,83 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/* Bookings */
+.button-group-option {
+  position: relative;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.button-group-option::before, .button-group-option::after {
+  display: table;
+  content: ' ';
+  -webkit-flex-basis: 0;
+      -ms-flex-preferred-size: 0;
+          flex-basis: 0;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.button-group-option::after {
+  clear: both;
+}
+
+.button-group-option .button {
+  margin: 0;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  font-size: 0.9rem;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+.button-group-option .button:last-child {
+  margin-right: 0;
+}
+
+.button-group-option .button {
+  -webkit-flex: 1 1 0px;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0px;
+}
+
+.button-group-option .button {
+  font-size: 0.8rem;
+}
+
+.button-group-option:before {
+  content: attr(data-grouptype);
+  z-index: 1;
+  color: #8a8a8a;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.25em;
+  border-radius: 5000px;
+  background: #fefefe;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.button-group-option .button + .button {
+  margin-left: 0.35rem;
 }

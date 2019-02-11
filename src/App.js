@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchForm from './components/SearchForm'
 import ContentContainer from './components/ContentContainer'
+import BookingsContainer from './components/BookingsContainer'
 import {BrowserRouter as Router, Route, Link, NavLink} from "react-router-dom"
 
 const endPoint = "http://localhost:3001/api/v1/"
@@ -72,16 +73,47 @@ class App extends Component {
     })
   }
 
+  searchForm = () => (
+    <div className="middle-left">
+      <div className="middle-left" hidden={this.state.hidden}>
+        <SearchForm
+          handleSubmit={this.handleSubmit}
+          handleFormChange={this.handleFormChange}
+          hidden={this.state.hidden}
+        />
+      </div>
+      <div className="wrapper" hidden={!this.state.hidden}>
+        <ContentContainer
+          chefData={this.state.chefsToReturn}
+          selectedChef={this.selectedChef}
+          handleBookChef={this.handleBookChef}
+          guests={this.state.guests}
+        />
+      </div>
+
+    </div>
+  )
+
+  renderSearch =  () => (
+    <div className="wrapper" >
+      <ContentContainer
+        chefData={this.state.chefsToReturn}
+        selectedChef={this.selectedChef}
+        handleBookChef={this.handleBookChef}
+        guests={this.state.guests}
+      />
+    </div>)
+
+  renderBookings = () => (
+    <BookingsContainer
+      chefs={this.state.chefs}
+    />
+  )
+
   render() {
     return (
       <Router>
       <div>
-        <NavLink exact to="/" >
-          Home
-        </NavLink>
-        <NavLink exact to="/search" >
-          Search
-        </NavLink>
 
         <div className="App">
           <div className="hero-full-screen">
@@ -91,28 +123,26 @@ class App extends Component {
                 <div className="top-bar-left">
                   <ul className="menu">
                     <li className="menu-text"><img src="https://i.imgur.com/9En3spK.png" href="#" alt="logo"/></li>
+                    <li><NavLink to="/" >
+                    Home
+                    </NavLink></li>
+
+                    <li><NavLink exact to="/search" >
+                    Search
+                    </NavLink></li>
+
+                    <li><NavLink exact to="/bookings" >
+                    Bookings
+                    </NavLink></li>
                   </ul>
-                  <a href="#">toque</a>
+                  <a href="/">toque</a>
                 </div>
               </div>
             </div>
 
-            <div className="middle-left" hidden={this.state.hidden}>
-              <SearchForm
-                handleSubmit={this.handleSubmit}
-                handleFormChange={this.handleFormChange}
-                hidden={this.state.hidden}
-              />
-            </div>
-
-            <div className="wrapper" hidden={!this.state.hidden}>
-                <ContentContainer
-                  chefData={this.state.chefsToReturn}
-                  selectedChef={this.selectedChef}
-                  handleBookChef={this.handleBookChef}
-                  guests={this.state.guests}
-                />
-            </div>
+            <Route exact path="/" component={this.searchForm} />
+            <Route exact path="/search" component={this.renderSearch} />
+            <Route exact path="/bookings" component={this.renderBookings} />
 
           </div>
         </div>

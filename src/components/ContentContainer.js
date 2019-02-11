@@ -12,7 +12,6 @@ class ContentContainer extends React.Component {
     currentChef: null,
     datetime: null,
     message: '',
-    hideCarousel: true,
   }
 
   showModal = (chef) => {

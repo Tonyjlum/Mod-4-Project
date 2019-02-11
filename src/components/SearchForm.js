@@ -6,18 +6,18 @@ const SearchForm = (props) => {
       <form onChange={props.handleFormChange}>
         <h3>Hire A Personal Chef</h3>
         <br/>
-        <div className="row columns">
-          <select id="location" type="text" >
-            <option value="" disabled selected>Your Location</option>
+        <div className="row-columns">
+          <select defaultValue="your-location" id="location" type="text" >
+            <option value="your-location" disabled>Your Location</option>
             <option value="any">Any</option>
             <option value="brooklyn">Brooklyn</option>
             <option value="manhattan">Manhattan</option>
             <option value="queens">Queens</option>
           </select>
         </div>
-        <div className="row columns">
-          <select id="cuisine" type="text" >
-            <option value="" disabled selected>Cuisine</option>
+        <div className="row-columns">
+          <select defaultValue="cuisine" id="cuisine" type="text" >
+            <option value="cuisine" disabled>Cuisine</option>
             <option value="any">Any</option>
             <option value="italian">Italian</option>
             <option value="french">French</option>
@@ -35,9 +35,9 @@ const SearchForm = (props) => {
             <option value="other">Other</option>
           </select>
         </div>
-        <div className="row columns">
-          <select id="guests" type="text" >
-            <option value="" disabled selected>Guests</option>
+        <div className="row-columns">
+          <select defaultValue="guests" id="guests" type="text" >
+            <option value="guests" disabled>Guests</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
