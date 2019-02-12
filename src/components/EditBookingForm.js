@@ -14,7 +14,7 @@ const EditBookingForm = (props) => {
             <textarea name="message" id="edittedNote" rows="12"></textarea>
 
             <div className="contact-us-form-actions">
-              <input type="submit" className="button" value="Close" />
+              <input type="submit" className="button" onClick={props.handleClose} value="Close" />
               <input onClick={() => props.handleEditSubmit(props.currentBooking)} type="submit" className="button" value="Edit Booking" />
             </div>
           </div>

@@ -12,7 +12,6 @@ class App extends Component {
   state = {
     chefs: [],
     chefsToReturn: [],
-    location: null,
     cuisine: null,
     guests: 0,
     hidden: false
@@ -42,7 +41,7 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    if (this.state.location && this.state.cuisine && this.state.guests) {
+    if (this.state.cuisine && this.state.guests) {
       this.setState({
         hidden: !this.state.hidden,
         chefsToReturn: this.chefsToDisplay()
@@ -72,6 +71,7 @@ class App extends Component {
       hidden: !this.state.hidden
     })
   }
+
 
   searchForm = () => (
     <div className="middle-left">

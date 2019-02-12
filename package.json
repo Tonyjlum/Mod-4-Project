@@ -5,9 +5,11 @@
   "dependencies": {
     "bootstrap": "^4.2.1",
     "foundation-sites": "^6.5.3",
+    "moment": "^2.24.0",
     "react": "^16.8.1",
     "react-coverflow": "^0.2.18",
     "react-dom": "^16.8.1",
+    "react-moment": "^0.8.4",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3"

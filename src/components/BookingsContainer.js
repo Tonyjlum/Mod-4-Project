@@ -9,7 +9,8 @@ class BookingsContainer extends React.Component {
     show: false,
     currentBooking: null,
     edittedDT: null,
-    edittedNote: ""
+    edittedNote: "",
+    currentShowing: "all-bookings"
   }
 
   showModal = (booking) => {
@@ -75,10 +76,42 @@ class BookingsContainer extends React.Component {
     })
   }
 
+  toggleAllFuturePastBookings = (e) => {
+    e.preventDefault()
+    this.setState({
+      currentBooking: e.target.id
+    })
+  }
+
+  displayBookings = () => {
+    if (this.state.currentBooking === "upcoming-bookings") {
+      return this.state.bookings.filter( booking => {
+        return new Date(booking.datetime).getTime() > Date.now()
+      })
+    } else if (this.state.currentBooking === "past-bookings") {
+      return this.state.bookings.filter( booking => {
+        return new Date(booking.datetime).getTime() < Date.now()
+      })
+    } else {
+      return this.state.bookings
+    }
+  }
+
   render() {
     return (
-      <div>
-        {this.mapUsersBookings().map( booking => {
+      <div className="booking-container">
+        <div className="btn-group btn-group-toggle fixed-top" data-toggle="buttons">
+          <label className="btn btn-secondary active" onClick={this.toggleAllFuturePastBookings} id="all-bookings">
+            <input type="radio" name="options" id="option1" autoComplete="off" defaultChecked />All Bookings
+          </label>
+          <label className="btn btn-secondary" onClick={this.toggleAllFuturePastBookings} id="upcoming-bookings">
+            <input type="radio" name="options" id="option1" autoComplete="off" />Upcoming Bookings
+          </label>
+          <label className="btn btn-secondary" onClick={this.toggleAllFuturePastBookings} id="past-bookings">
+            <input type="radio" name="options" id="option3" autoComplete="off" />Past Bookings
+          </label>
+        </div>
+        {this.displayBookings().map( booking => {
           return (
             <Booking
               key={booking.id}

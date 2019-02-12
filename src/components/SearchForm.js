@@ -7,15 +7,6 @@ const SearchForm = (props) => {
         <h3>Hire A Personal Chef</h3>
         <br/>
         <div className="row-columns">
-          <select defaultValue="your-location" id="location" type="text" >
-            <option value="your-location" disabled>Your Location</option>
-            <option value="any">Any</option>
-            <option value="brooklyn">Brooklyn</option>
-            <option value="manhattan">Manhattan</option>
-            <option value="queens">Queens</option>
-          </select>
-        </div>
-        <div className="row-columns">
           <select defaultValue="cuisine" id="cuisine" type="text" >
             <option value="cuisine" disabled>Cuisine</option>
             <option value="any">Any</option>

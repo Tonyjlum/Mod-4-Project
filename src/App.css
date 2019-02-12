@@ -315,6 +315,31 @@ body {
 }
 
 /* Bookings */
+
+/* Toggle Upcoming, Past Bookings */
+.btn-group-toggle {
+  display: inline-block;
+  /* position: fixed; */
+  top: 10%;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 23px;
+}
+
+
+/* Edit and Delete Buttons */
+.booking-container {
+  margin: 0, 100px, 0, 100px;
+  text-align: center;
+  max-width: 60%
+}
+
+.table-expand {
+  width: 100%;
+  margin: 20px auto;
+}
+
 .button-group-option {
   position: relative;
   -webkit-align-items: center;
