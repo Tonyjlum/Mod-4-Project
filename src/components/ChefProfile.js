@@ -27,9 +27,9 @@ class ChefProfile extends React.Component {
 
             <div className="card-profile-stats-intro-content">
               <h4><strong>{this.props.chef.name}</strong></h4>
-              <p>Specialty: {this.props.chef.specialty}<small/></p><br/>
+              <p>Specialty: {this.props.chef.specialty}</p><br/>
               <div className="button-group align-center">
-                <button id={this.props.chef.id} onClick={() => this.props.showModal(this.props.chef)} className="button" data-open="mobile-ios-modal"><i className="fa fa-cogs"></i>Book This Chef</button>
+                <button id={this.props.chef.id} onClick={() => this.props.showModal(this.props.chef)} className="btn btn-primary" data-open="mobile-ios-modal"><i className="fa fa-cogs"></i>Book This Chef</button>
               </div>
             </div>
 
@@ -56,12 +56,11 @@ class ChefProfile extends React.Component {
             <p>rating</p>
           </div>
           <div className="card-profile-stats-statistic">
-            <span className="stat">25</span>
-            <p>reviews</p>
-          </div>
-          <div className="card-profile-stats-statistic">
             <span className="stat">32</span>
             <p>meals cooked</p>
+          </div>
+          <div className="card-profile-stats-statistic">
+            <button className="btn btn-outline-primary" onClick={() => this.props.getChefsBookings(this.props.chef)}>reviews</button>
           </div>
         </div>
 

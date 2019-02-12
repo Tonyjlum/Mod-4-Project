@@ -353,6 +353,12 @@ body {
   background-color: rgba(126, 185, 255, 0.7)
 }
 
+
+.btn-center {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
 .button-group-option {
   position: relative;
   -webkit-align-items: center;

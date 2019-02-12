@@ -4,6 +4,7 @@ import React from 'react'
 // import Coverflow from 'react-coverflow'
 import ChefProfile from './ChefProfile'
 import BookChefForm from './BookChefForm'
+import ShowReviews from './ShowReviews'
 
 class ContentContainer extends React.Component {
 
@@ -12,14 +13,20 @@ class ContentContainer extends React.Component {
     currentChef: null,
     datetime: null,
     message: '',
+    bookings: [],
+    showReviews: false
   }
 
   showModal = (chef) => {
     this.setState({ show: true, currentChef: chef })
   }
 
+  showReviewsModal = (chef) => {
+    this.setState({ showReviews: true, currentChef: chef })
+  }
+
   hideModal = () => {
-    this.setState({ show: false })
+    this.setState({ show: false, showReviews: false })
   }
 
   bookChefAppointment = (e) => {
@@ -56,6 +63,23 @@ class ContentContainer extends React.Component {
     }, () => console.log(this.state))
   }
 
+  getChefsBookings = (chef) => {
+    this.setState({
+      currentChef: chef
+    })
+    fetch("http://localhost:3001/api/v1/appointments")
+    .then( resp => resp.json())
+    .then( bookings => {
+      const chefsBookings = bookings.filter( booking => {
+        return booking.chef_id === this.state.currentChef.id
+      })
+      const sortedBookings = chefsBookings.sort( (a, b) => (new Date(b.datetime).getTime() - new Date(a.datetime).getTime()) )
+      this.setState({
+        bookings: sortedBookings
+      }, () => this.showReviewsModal(this.state.currentChef))
+    })
+  }
+
   render() {
     return(
       <div className="profile-wrapper">
@@ -67,6 +91,8 @@ class ContentContainer extends React.Component {
               selectedChef={this.props.selectedChef}
               handleBookChef={this.props.handleBookChef}
               showModal={this.showModal}
+              getChefsBookings={this.getChefsBookings}
+              showReviewsModal={this.showReviewsModal}
             />
           )
         })}
@@ -76,6 +102,11 @@ class ContentContainer extends React.Component {
             handleClose={this.hideModal}
             bookChefAppointment={this.bookChefAppointment}
             onBookChefFormChange={this.onBookChefFormChange}
+          />
+          <ShowReviews
+            bookings={this.state.bookings}
+            showReviews={this.state.showReviews}
+            handleClose={this.hideModal}
           />
       </div>
     )
