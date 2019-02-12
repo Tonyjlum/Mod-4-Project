@@ -1,32 +1,44 @@
 import React from 'react'
 import Booking from './Booking'
 import EditBookingForm from './EditBookingForm'
+import WriteReviewForm from './WriteReviewForm'
 
 class BookingsContainer extends React.Component {
 
   state = {
     bookings: [],
-    show: false,
+    showEdit: false,
+    showReview: false,
     currentBooking: null,
     edittedDT: null,
     edittedNote: "",
-    currentShowing: "all-bookings"
+    currentShowing: "all-bookings",
+    rating: null,
+    review: "",
   }
 
-  showModal = (booking) => {
-    this.setState({ show: true, currentBooking: booking })
+  showEditModal = (booking) => {
+    this.setState({ showEdit: true, currentBooking: booking })
+  }
+
+  showReviewModal = (booking) => {
+    this.setState({ showReview: true, currentBooking: booking})
   }
 
   hideModal = () => {
-    this.setState({ show: false })
+    this.setState({ showEdit: false, showReview: false })
   }
 
   componentDidMount() {
     fetch("http://localhost:3001/api/v1/appointments")
     .then( resp => resp.json())
     .then( bookings => {
+      const usersBookings = bookings.filter( booking => {
+        return booking.user_id === 14
+      })
+      const sortedBookings = usersBookings.sort( (a, b) => (new Date(a.datetime).getTime() - new Date(b.datetime).getTime()) )
       this.setState({
-        bookings
+        bookings: usersBookings
       })
     })
   }
@@ -79,22 +91,45 @@ class BookingsContainer extends React.Component {
   toggleAllFuturePastBookings = (e) => {
     e.preventDefault()
     this.setState({
-      currentBooking: e.target.id
+      currentShowing: e.target.id
     })
   }
 
   displayBookings = () => {
-    if (this.state.currentBooking === "upcoming-bookings") {
+    if (this.state.currentShowing === "upcoming-bookings") {
       return this.state.bookings.filter( booking => {
         return new Date(booking.datetime).getTime() > Date.now()
       })
-    } else if (this.state.currentBooking === "past-bookings") {
+    } else if (this.state.currentShowing === "past-bookings") {
       return this.state.bookings.filter( booking => {
         return new Date(booking.datetime).getTime() < Date.now()
       })
     } else {
       return this.state.bookings
     }
+  }
+
+  handleReviewChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    }, console.log(this.state.review, this.state.rating))
+  }
+
+  submitReview = () => {
+    fetch(`http://localhost:3001/api/v1/appointments/${this.state.currentBooking.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        review: this.state.review,
+        chef_rating: this.state.rating
+      })
+    })
+    .then(res => res.json())
+    .then(console.log)
+
   }
 
   render() {
@@ -118,16 +153,24 @@ class BookingsContainer extends React.Component {
               booking={booking}
               chefs={this.props.chefs}
               cancelBooking={this.handleCancelBooking}
-              showModal={this.showModal}
+              showEditModal={this.showEditModal}
+              showReviewModal={this.showReviewModal}
             />
           )
         })}
         <EditBookingForm
-          show={this.state.show}
+          show={this.state.showEdit}
           handleClose={this.hideModal}
           currentBooking={this.state.currentBooking}
           editBooking={this.getEdittedBookingInfo}
           handleEditSubmit={this.handleEditSubmit}
+        />
+        <WriteReviewForm
+          show={this.state.showReview}
+          handleClose={this.hideModal}
+          currentBooking={this.state.currentBooking}
+          submitReview={this.submitReview}
+          handleReviewChange={this.handleReviewChange}
         />
       </div>
     )

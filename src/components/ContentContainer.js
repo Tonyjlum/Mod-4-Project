@@ -34,7 +34,7 @@ class ContentContainer extends React.Component {
         user_id: 1,
         chef_id: this.state.currentChef.id,
         guest_count: this.props.guests,
-        cost: this.state.currentChef.price,
+        cost: this.state.currentChef.price * this.props.guests,
         note: this.state.message,
         datetime: this.state.datetime
       })

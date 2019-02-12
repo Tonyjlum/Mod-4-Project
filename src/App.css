@@ -340,6 +340,19 @@ body {
   margin: 20px auto;
 }
 
+.cancel {
+  background-color: rgba(185, 20, 29, 0.5);
+}
+
+.edit {
+  background-color: rgba(58, 91, 76, 0.5);
+}
+
+.review {
+  width: fill;
+  background-color: rgba(126, 185, 255, 0.7)
+}
+
 .button-group-option {
   position: relative;
   -webkit-align-items: center;
