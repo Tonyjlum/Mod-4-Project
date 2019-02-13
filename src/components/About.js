@@ -12,7 +12,7 @@ const About = (props) => {
       <h4>Flatiron School Teaching Staff</h4>
       <h4> 111918 Flatiron School Class</h4>
 
-      <img width="70%" src={"https://upload.wikimedia.org/wikipedia/commons/6/61/FS_wiki.png"}/>
+      <img className="logo"width="70%" src={"https://upload.wikimedia.org/wikipedia/commons/6/61/FS_wiki.png"}/>
     </div>
   )
 }

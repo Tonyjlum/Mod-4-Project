@@ -31,7 +31,7 @@ class Booking extends React.Component {
         } else {
           return (
             <div>
-              <p><strong>Review: </strong>{this.props.booking.review}</p>
+              {"🍳".repeat(this.props.booking.chef_rating)} <p><strong>Review: </strong>{this.props.booking.review}</p>
             </div>)
         }
     }
