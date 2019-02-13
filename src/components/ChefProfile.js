@@ -69,7 +69,7 @@ class ChefProfile extends React.Component {
             <p>per person</p>
           </div>
           <div className="card-profile-stats-statistic">
-            <span className="stat">{this.props.chef.rating}</span>
+            <span className="stat">{"🍳".repeat(this.props.chef.rating)}</span>
             <p>rating</p>
           </div>
           <div className="card-profile-stats-statistic">
