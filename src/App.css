@@ -471,3 +471,14 @@ body {
 .button-group-option .button + .button {
   margin-left: 0.35rem;
 }
+
+.about-page {
+  margin-bottom: 10%;
+  position: sticky;
+  top: 0;
+  color: white;
+  text-align: center;
+  margin-right: 70%;
+  /* background: rgb(208, 214, 219, 0.35); */
+  text-shadow: 3px 3px #000000;
+}

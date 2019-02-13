@@ -23,11 +23,17 @@ class Booking extends React.Component {
         </div>
       )
     } else {
-      return (
-        <div>
-          <a className="button review custom" onClick={() => this.props.showReviewModal(this.props.booking)}>Write a Review</a>
-        </div>
-      )
+        if (this.props.booking.review === "0"){
+          return (
+            <div>
+              <a className="button review custom" onClick={() => this.props.showReviewModal(this.props.booking)}>Write a Review</a>
+            </div>)
+        } else {
+          return (
+            <div>
+              <p><strong>Review: </strong>{this.props.booking.review}</p>
+            </div>)
+        }
     }
   }
 
@@ -57,9 +63,8 @@ class Booking extends React.Component {
 
           <tr className="table-expand-row-content">
             <td colSpan="8" className="table-expand-row-nested">
-              <p><strong>Note to the Chef:</strong> "{this.props.booking.note}"</p>
+            {new Date(this.props.booking.datetime).getTime() > Date.now() && <p><strong>Note to the Chef:</strong> "{this.props.booking.note}"</p>}
                 {this.bookingButtons()}
-
             </td>
           </tr>
 

@@ -4,6 +4,7 @@ import SearchForm from './components/SearchForm'
 import ContentContainer from './components/ContentContainer'
 import BookingsContainer from './components/BookingsContainer'
 import {BrowserRouter as Router, Route, Link, NavLink} from "react-router-dom"
+import About from './components/About'
 
 const endPoint = "http://localhost:3001/api/v1/"
 
@@ -110,6 +111,10 @@ class App extends Component {
     />
   )
 
+  renderAbout = () => (
+    <About />
+  )
+
   render() {
     return (
       <Router>
@@ -132,6 +137,10 @@ class App extends Component {
                       Your Bookings
                     </NavLink></li>
 
+                    <li><NavLink exact to="/about" >
+                      About
+                    </NavLink></li>
+
                   </ul>
                   <a href="/">toque</a>
                 </div>
@@ -141,6 +150,8 @@ class App extends Component {
             <Route exact path="/" component={this.searchForm} />
             <Route exact path="/chefs" component={this.renderAllChefs} />
             <Route exact path="/bookings" component={this.renderBookings} />
+            <Route exact path="/about" component={this.renderAbout} />
+
 
           </div>
         </div>
