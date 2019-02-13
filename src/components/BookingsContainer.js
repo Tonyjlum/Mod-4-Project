@@ -12,7 +12,7 @@ class BookingsContainer extends React.Component {
     currentBooking: null,
     edittedDT: null,
     edittedNote: "",
-    currentShowing: "all-bookings",
+    currentShowing: "upcoming-bookings",
     rating: null,
     review: "",
   }
@@ -136,11 +136,11 @@ class BookingsContainer extends React.Component {
     return (
       <div className="booking-container">
         <div className="btn-group btn-group-toggle fixed-top" data-toggle="buttons">
-          <label className="btn btn-secondary active" onClick={this.toggleAllFuturePastBookings} id="all-bookings">
-            <input type="radio" name="options" id="option1" autoComplete="off" defaultChecked />All Bookings
+          <label className="btn btn-secondary" onClick={this.toggleAllFuturePastBookings} id="all-bookings">
+            <input type="radio" name="options" id="option1" autoComplete="off" />All Bookings
           </label>
-          <label className="btn btn-secondary" onClick={this.toggleAllFuturePastBookings} id="upcoming-bookings">
-            <input type="radio" name="options" id="option1" autoComplete="off" />Upcoming Bookings
+          <label className="btn btn-secondary active" onClick={this.toggleAllFuturePastBookings} id="upcoming-bookings">
+            <input type="radio" name="options" id="option1" autoComplete="off" defaultChecked />Upcoming Bookings
           </label>
           <label className="btn btn-secondary" onClick={this.toggleAllFuturePastBookings} id="past-bookings">
             <input type="radio" name="options" id="option3" autoComplete="off" />Past Bookings
