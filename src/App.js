@@ -41,7 +41,7 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    if (this.state.cuisine && this.state.guests) {
+    if (this.state.cuisine) {
       this.setState({
         hidden: !this.state.hidden,
         chefsToReturn: this.chefsToDisplay()
@@ -97,7 +97,7 @@ class App extends Component {
   renderAllChefs =  () => (
     <div className="wrapper" >
       <ContentContainer
-        chefData={this.state.chefsToReturn}
+        chefData={this.state.chefs}
         selectedChef={this.selectedChef}
         handleBookChef={this.handleBookChef}
         guests={this.state.guests}
@@ -123,16 +123,13 @@ class App extends Component {
                 <div className="top-bar-left">
                   <ul className="menu">
                     <li className="menu-text"><img src="https://i.imgur.com/9En3spK.png" href="#" alt="logo"/></li>
-                    <li><NavLink to="/" >
-                    Home
+
+                    <li><NavLink exact to="/chefs" >
+                      Chefs
                     </NavLink></li>
 
                     <li><NavLink exact to="/bookings" >
-                    Bookings
-                    </NavLink></li>
-
-                    <li><NavLink exact to="/allchefs" >
-                    All Chefs
+                      Your Bookings
                     </NavLink></li>
 
                   </ul>
@@ -142,7 +139,7 @@ class App extends Component {
             </div>
 
             <Route exact path="/" component={this.searchForm} />
-            <Route exact path="/allchefs" component={this.renderAllChefs} />
+            <Route exact path="/chefs" component={this.renderAllChefs} />
             <Route exact path="/bookings" component={this.renderBookings} />
 
           </div>

@@ -10,7 +10,10 @@ const BookChefForm = (props) => {
         <form className="contact-us-form" onChange={props.onBookChefFormChange}><br/>
           <h4 className="modal-chef-name">Book This Chef!</h4>
           <div className="modal-content">
-            <input type="datetime-local" id="datetime"/>
+            <span className="book-chef-datetime-guests">
+              <input className="book-chef-datetime" type="datetime-local" id="datetime"/>
+              <input className="book-chef-guests" type="number" id="guests" placeholder="Guests" min="1" max="6"/>
+            </span>
             <textarea name="message" id="message" rows="12" placeholder="Type your message here"></textarea>
 
             <div className="contact-us-form-actions">

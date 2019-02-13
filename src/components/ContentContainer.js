@@ -13,6 +13,7 @@ class ContentContainer extends React.Component {
     currentChef: null,
     datetime: null,
     message: '',
+    guests: null,
     bookings: [],
     showReviews: false
   }
@@ -34,6 +35,8 @@ class ContentContainer extends React.Component {
   }
 
   bookChefAppointment = (e) => {
+    console.log(this.state)
+    debugger
     e.preventDefault()
     fetch("http://localhost:3001/api/v1/appointments", {
       method: 'POST',
@@ -44,8 +47,8 @@ class ContentContainer extends React.Component {
       body: JSON.stringify({
         user_id: 1,
         chef_id: this.state.currentChef.id,
-        guest_count: this.props.guests,
-        cost: this.state.currentChef.price * this.props.guests,
+        guest_count: this.state.guests,
+        cost: this.state.currentChef.price * this.state.guests,
         note: this.state.message,
         datetime: this.state.datetime
       })
@@ -56,7 +59,8 @@ class ContentContainer extends React.Component {
         show: false,
         currentChef: null,
         datetime: null,
-        message: ''
+        message: '',
+        guests: null
       })
     })
   }
@@ -64,7 +68,7 @@ class ContentContainer extends React.Component {
   onBookChefFormChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
-    }, () => console.log(this.state))
+    })
   }
 
   getChefsBookings = (chef) => {

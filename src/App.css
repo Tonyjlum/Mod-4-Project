@@ -330,6 +330,27 @@ body {
 
 /* Bookings */
 
+.book-chef-datetime-guests {
+  text-align: center;
+  padding: 0;
+}
+
+.book-chef-datetime {
+  width: 55%;
+  margin-right: 2%;
+  margin-bottom: 4%;
+  justify-content: space-between;
+  display: inline-block;
+}
+
+.book-chef-guests {
+  width: 35%;
+  margin-left: 2%;
+  margin-bottom: 4%;
+  justify-content: space-between;
+  display: inline-block;
+}
+
 /* Toggle Upcoming, Past Bookings */
 .btn-group-toggle {
   display: inline-block;

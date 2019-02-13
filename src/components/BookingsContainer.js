@@ -12,6 +12,7 @@ class BookingsContainer extends React.Component {
     currentBooking: null,
     edittedDT: null,
     edittedNote: "",
+    edittedGuest: null,
     currentShowing: "upcoming-bookings",
     rating: null,
     review: "",
@@ -83,7 +84,8 @@ class BookingsContainer extends React.Component {
       },
       body: JSON.stringify({
         datetime: this.state.edittedDT,
-        note: this.state.edittedNote
+        note: this.state.edittedNote,
+        guest_count: this.state.edittedGuest
       })
     })
   }
@@ -135,7 +137,7 @@ class BookingsContainer extends React.Component {
   render() {
     return (
       <div className="booking-container">
-        <div className="btn-group btn-group-toggle fixed-top" data-toggle="buttons">
+        <div className="btn-group btn-group-toggle" data-toggle="buttons">
           <label className="btn btn-secondary" onClick={this.toggleAllFuturePastBookings} id="all-bookings">
             <input type="radio" name="options" id="option1" autoComplete="off" />All Bookings
           </label>

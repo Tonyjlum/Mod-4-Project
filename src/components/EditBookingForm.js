@@ -10,7 +10,10 @@ const EditBookingForm = (props) => {
         <form className="contact-us-form" onChange={props.editBooking}><br/>
           <h4 className="modal-chef-name">Edit Your Booking!</h4>
           <div className="modal-content">
-            <input type="datetime-local" id="edittedDT"/>
+            <span className="book-chef-date-time-guests">
+              <input className="book-chef-info" type="datetime-local" id="edittedDT"/>
+              <input className="book-chef-info" type="number" id="edittedGuest" placeholder="Guests" min="1" max="6"/>
+            </span>
             <textarea name="message" id="edittedNote" rows="12"></textarea>
 
             <div className="contact-us-form-actions">
