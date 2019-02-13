@@ -19,7 +19,7 @@ const ShowReviews = (props) => {
                   {"🍳".repeat(sb.chef_rating)}<hr/>
                 </p>
               )
-            }).reverse().slice(0, 5)}
+            }).reverse()}
 
           </div>
           <div className="contact-us-form-actions form-center">

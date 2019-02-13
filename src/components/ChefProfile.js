@@ -4,7 +4,8 @@ class ChefProfile extends React.Component {
 
   state = {
     note: "",
-    date: null
+    date: null,
+    allBookings: []
   }
 
   chefBioLimit = (bio) => {
@@ -13,6 +14,22 @@ class ChefProfile extends React.Component {
     } else {
       return bio
     }
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3001/api/v1/appointments")
+    .then( resp => resp.json())
+    .then( allBookings => {
+      this.setState({
+        allBookings
+      })
+    })
+  }
+
+  findChefBookings = () => {
+    return this.state.allBookings.filter( booking => {
+      return booking.chef_id === this.props.chef.id
+    })
   }
 
   render() {
@@ -56,8 +73,8 @@ class ChefProfile extends React.Component {
             <p>rating</p>
           </div>
           <div className="card-profile-stats-statistic">
-            <span className="stat">32</span>
-            <p>meals cooked</p>
+            <span className="stat">{this.findChefBookings().length}</span>
+            <p>satisfied clients</p>
           </div>
           <div className="card-profile-stats-statistic">
             <button className="btn btn-outline-primary" onClick={() => this.props.getChefsBookings(this.props.chef)}>reviews</button>

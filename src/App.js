@@ -97,7 +97,7 @@ class App extends Component {
   renderAllChefs =  () => (
     <div className="wrapper" >
       <ContentContainer
-        chefData={this.state.chefs}
+        chefData={this.state.chefs.sort((a,b) => b.rating - a.rating)}
         selectedChef={this.selectedChef}
         handleBookChef={this.handleBookChef}
         guests={this.state.guests}

@@ -66,6 +66,7 @@ class ContentContainer extends React.Component {
   }
 
   onBookChefFormChange = (e) => {
+    e.preventDefault()
     this.setState({
       [e.target.id]: e.target.value
     })

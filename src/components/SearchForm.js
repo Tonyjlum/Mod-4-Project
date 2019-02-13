@@ -8,7 +8,7 @@ const SearchForm = (props) => {
         <br/>
         <div className="row-columns">
           <select defaultValue="cuisine" id="cuisine" type="text" >
-            <option value="cuisine" disabled>Cuisine</option>
+            <option value="cuisine" disabled>What are you craving?</option>
             <option value="any">Any</option>
             <option value="american">American</option>
             <option value="chinese">Chinese</option>

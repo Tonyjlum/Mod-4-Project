@@ -17,7 +17,7 @@ const WriteReviewForm = (props) => {
             <input type="radio" id="star4" name="rating" value="4" /><label htmlFor="star4" title="Pretty good">🍳🍳🍳🍳</label>
             <input type="radio" id="star5" name="rating" value="5" /><label htmlFor="star5" title="Rocks!">🍳🍳🍳🍳🍳 </label>
           </fieldset>
-            <textarea name="review" id="edittedNote" rows="8" placeholder="Please write a review."></textarea>
+            <textarea name="review" id="review" rows="8" placeholder="Please write a review."></textarea>
             <div className="contact-us-form-actions">
               <input type="submit" className="button" onClick={props.handleClose} value="Close" />
               <input type="submit" className="button" onClick={props.submitReview} value="Submit Review" />
