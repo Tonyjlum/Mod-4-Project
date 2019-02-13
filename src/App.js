@@ -94,7 +94,7 @@ class App extends Component {
     </div>
   )
 
-  renderAbout =  () => (
+  renderAllChefs =  () => (
     <div className="wrapper" >
       <ContentContainer
         chefData={this.state.chefsToReturn}
@@ -130,9 +130,9 @@ class App extends Component {
                     <li><NavLink exact to="/bookings" >
                     Bookings
                     </NavLink></li>
-                    
-                    <li><NavLink exact to="/search" >
-                    About
+
+                    <li><NavLink exact to="/allchefs" >
+                    All Chefs
                     </NavLink></li>
 
                   </ul>
@@ -142,7 +142,7 @@ class App extends Component {
             </div>
 
             <Route exact path="/" component={this.searchForm} />
-            <Route exact path="/about" component={this.renderAbout} />
+            <Route exact path="/allchefs" component={this.renderAllChefs} />
             <Route exact path="/bookings" component={this.renderBookings} />
 
           </div>

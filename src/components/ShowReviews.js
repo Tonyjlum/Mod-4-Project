@@ -14,8 +14,12 @@ const ShowReviews = (props) => {
             {props.bookings.filter( booking => {
               return booking.review.length > 2
             }).map( sb => {
-              return <p> {sb.review} </p>
-            }).slice(0, 5)}
+              return (
+                <p className="review-container"> {sb.review}<br/><br/>
+                  {"🍳".repeat(sb.chef_rating)}<hr/>
+                </p>
+              )
+            }).reverse().slice(0, 5)}
 
           </div>
           <div className="contact-us-form-actions form-center">

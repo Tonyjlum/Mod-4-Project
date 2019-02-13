@@ -26,7 +26,11 @@ class ContentContainer extends React.Component {
   }
 
   hideModal = () => {
-    this.setState({ show: false, showReviews: false })
+    this.setState({ show: false })
+  }
+
+  hideReviewsModal = () => {
+    this.setState({ showReviews: false })
   }
 
   bookChefAppointment = (e) => {
@@ -106,7 +110,7 @@ class ContentContainer extends React.Component {
           <ShowReviews
             bookings={this.state.bookings}
             showReviews={this.state.showReviews}
-            handleClose={this.hideModal}
+            handleClose={this.hideReviewsModal}
           />
       </div>
     )

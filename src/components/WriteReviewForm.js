@@ -11,11 +11,11 @@ const WriteReviewForm = (props) => {
           <h4 className="modal-chef-name">Write a Review!</h4>
           <div className="modal-content">
           <fieldset className="rating">
-            <input type="radio" id="star1" name="rating" value="1" /><label htmlFor="star1" title="Sucks big time">1. "Chimi Chuck It in the Bin"</label><br/>
-            <input type="radio" id="star2" name="rating" value="2" /><label htmlFor="star2" title="Kinda bad">2. "Idiot Sandwich"</label><br/>
-            <input type="radio" id="star3" name="rating" value="3" /><label htmlFor="star3" title="Meh">3. "Hey Panini Head, not the worst."</label><br/>
-            <input type="radio" id="star4" name="rating" value="4" /><label htmlFor="star4" title="Pretty good">4. Purty Tursty</label><br/>
-            <input type="radio" id="star5" name="rating" value="5" /><label htmlFor="star5" title="Rocks!">5. Marry Me</label>
+            <input type="radio" id="star1" name="rating" value="1" /><label htmlFor="star1" title="Sucks big time">🍳 </label>
+            <input type="radio" id="star2" name="rating" value="2" /><label htmlFor="star2" title="Kinda bad">🍳🍳 </label>
+            <input type="radio" id="star3" name="rating" value="3" /><label htmlFor="star3" title="Meh">🍳🍳🍳 </label><br/>
+            <input type="radio" id="star4" name="rating" value="4" /><label htmlFor="star4" title="Pretty good">🍳🍳🍳🍳</label>
+            <input type="radio" id="star5" name="rating" value="5" /><label htmlFor="star5" title="Rocks!">🍳🍳🍳🍳🍳 </label>
           </fieldset>
             <textarea name="review" id="edittedNote" rows="8" placeholder="Please write a review."></textarea>
             <div className="contact-us-form-actions">

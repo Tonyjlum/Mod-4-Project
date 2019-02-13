@@ -34,7 +34,7 @@ class BookingsContainer extends React.Component {
     .then( resp => resp.json())
     .then( bookings => {
       const usersBookings = bookings.filter( booking => {
-        return booking.user_id === 14
+        return booking.user_id === 1
       })
       const sortedBookings = usersBookings.sort( (a, b) => (new Date(a.datetime).getTime() - new Date(b.datetime).getTime()) )
       this.setState({

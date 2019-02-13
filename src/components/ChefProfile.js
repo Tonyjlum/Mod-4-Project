@@ -27,7 +27,7 @@ class ChefProfile extends React.Component {
 
             <div className="card-profile-stats-intro-content">
               <h4><strong>{this.props.chef.name}</strong></h4>
-              <p>Specialty: {this.props.chef.specialty}</p><br/>
+              <p className="capitalize">Specialty: {this.props.chef.specialty}</p><br/>
               <div className="button-group align-center">
                 <button id={this.props.chef.id} onClick={() => this.props.showModal(this.props.chef)} className="btn btn-primary" data-open="mobile-ios-modal"><i className="fa fa-cogs"></i>Book This Chef</button>
               </div>
