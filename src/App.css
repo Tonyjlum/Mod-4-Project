@@ -482,7 +482,8 @@ body {
   /* background: rgb(208, 214, 219, 0.35); */
   text-shadow: 2px 2px #000000;
 }
-.logo {
+
+.flatiron-logo {
     background: rgb(208, 214, 219, 0.5);
     border-radius: 20px;
 }
