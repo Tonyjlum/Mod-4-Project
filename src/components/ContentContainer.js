@@ -6,6 +6,8 @@ import ChefProfile from './ChefProfile'
 import BookChefForm from './BookChefForm'
 import ShowReviews from './ShowReviews'
 
+import * as Const from '../const.js'
+
 class ContentContainer extends React.Component {
 
   state = {
@@ -35,10 +37,8 @@ class ContentContainer extends React.Component {
   }
 
   bookChefAppointment = (e) => {
-    console.log(this.state)
-    debugger
     e.preventDefault()
-    fetch("http://localhost:3001/api/v1/appointments", {
+    fetch(`${Const.ENDPOINT}appointments`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -76,7 +76,7 @@ class ContentContainer extends React.Component {
     this.setState({
       currentChef: chef
     })
-    fetch("http://localhost:3001/api/v1/appointments")
+    fetch(`${Const.ENDPOINT}appointments`)
     .then( resp => resp.json())
     .then( bookings => {
       const chefsBookings = bookings.filter( booking => {

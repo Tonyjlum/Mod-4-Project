@@ -3,6 +3,8 @@ import Booking from './Booking'
 import EditBookingForm from './EditBookingForm'
 import WriteReviewForm from './WriteReviewForm'
 
+import * as Const from '../const.js'
+
 class BookingsContainer extends React.Component {
 
   state = {
@@ -31,7 +33,7 @@ class BookingsContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/v1/appointments")
+    fetch(`${Const.ENDPOINT}appointments`)
     .then( resp => resp.json())
     .then( bookings => {
       const usersBookings = bookings.filter( booking => {
@@ -52,8 +54,7 @@ class BookingsContainer extends React.Component {
 
   handleCancelBooking = (bookingId) => {
     if (window.confirm(`Would you like to cancel?`)) {
-      console.log("delete this booking:", bookingId);
-      fetch(`http://localhost:3001/api/v1/appointments/${bookingId}`, {
+      fetch(`${Const.ENDPOINT}appointments/${bookingId}`, {
         method: "DELETE"
       })
       .then( () => {
@@ -76,7 +77,7 @@ class BookingsContainer extends React.Component {
   }
 
   handleEditSubmit = (booking) => {
-    fetch(`http://localhost:3001/api/v1/appointments/${booking.id}`, {
+    fetch(`${Const.ENDPOINT}appointments/${booking.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -118,7 +119,7 @@ class BookingsContainer extends React.Component {
   }
 
   submitReview = () => {
-    fetch(`http://localhost:3001/api/v1/appointments/${this.state.currentBooking.id}`, {
+    fetch(`${Const.ENDPOINT}appointments/${this.state.currentBooking.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

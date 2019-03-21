@@ -6,7 +6,7 @@ import BookingsContainer from './components/BookingsContainer'
 import {BrowserRouter as Router, Route, Link, NavLink} from "react-router-dom"
 import About from './components/About'
 
-const endPoint = "http://localhost:3001/api/v1/"
+import * as Const from './const.js'
 
 class App extends Component {
 
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`${endPoint}chefs`)
+    fetch(`${Const.ENDPOINT}chefs`)
     .then( resp => resp.json())
     .then(chefs => {
       this.setState({
