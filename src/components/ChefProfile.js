@@ -54,8 +54,8 @@ class ChefProfile extends React.Component {
             <p>rating</p>
           </div>
           <div className="card-profile-stats-statistic">
-            <span className="stat">32</span>
-            <p>meals cooked</p>
+            <span className="stat">{this.findChefBookings().length}</span>
+            <p>customers satisfied</p>
           </div>
           <div className="card-profile-stats-statistic">
             <button className="btn btn-outline-primary" onClick={() => this.props.getChefsBookings(this.props.chef)}>reviews</button>
