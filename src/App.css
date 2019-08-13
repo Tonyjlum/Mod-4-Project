@@ -487,3 +487,9 @@ body {
     background: rgb(208, 214, 219, 0.5);
     border-radius: 20px;
 }
+img{
+    max-height:250px;
+    max-width:250px;
+    height:auto;
+    width:auto;
+}

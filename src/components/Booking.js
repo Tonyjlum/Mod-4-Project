@@ -52,7 +52,7 @@ class Booking extends React.Component {
         </thead>
         <tbody>
           <tr className="table-expand-row" data-open-details>
-            <td><img src={this.findChef() && this.findChef().profile_picture_url}/></td>
+            <td><img className="card-profile-stats-intro-pic" src={this.findChef() && this.findChef().profile_picture_url}/></td>
             <td className="text-center">{this.findChef() && this.findChef().name}</td>
             <td className="text-center">
             <Moment date={this.props.booking.datetime}/>

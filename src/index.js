@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import * as Const from '../const.js'
+// import * as Const from '../const.js'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-fetch(`${Const.ENDPOINT}`)
 
 
 // If you want your app to work offline and load faster, you can change
